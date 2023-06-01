@@ -19,3 +19,19 @@ post '/' do
   erb :message
 end
 
+get '/admin' do
+  erb :admin
+end
+
+post '/admin' do
+  @login = params[:login]
+  @password = params[:password]
+
+  if @login == "Admin" && @password == "Secret"
+    @file = File.open("./users.txt","r")
+    erb :result
+  else
+    @report = 'Access denied'
+    erb :admin
+  end
+end
