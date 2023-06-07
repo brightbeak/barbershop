@@ -1,5 +1,4 @@
 require 'sinatra'
-
 get '/' do
   erb :index
 end
@@ -33,5 +32,11 @@ post '/admin' do
   else
     @report = 'Access denied'
     erb :admin
+  end
+end
+
+helpers do
+  def username
+    session[:identity] ? session[:identity] : 'Hello'
   end
 end
