@@ -35,6 +35,18 @@ post '/admin' do
   end
 end
 
+get '/about' do
+  erb :about
+end
+
+get '/contacts' do
+  erb :contacts
+end
+
+get '/visit' do
+  erb :visit
+end
+
 helpers do
   def username
     session[:identity] ? session[:identity] : 'Hello'
